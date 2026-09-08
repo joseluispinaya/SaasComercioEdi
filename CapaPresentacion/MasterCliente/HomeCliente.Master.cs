@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CapaPresentacion
+namespace CapaPresentacion.MasterCliente
 {
-    public partial class HomePage : System.Web.UI.MasterPage
+    public partial class HomeCliente : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,17 +15,17 @@ namespace CapaPresentacion
             Response.AppendHeader("Pragma", "no-cache");
             Response.AppendHeader("Expires", "0");
 
-            // 1. AUTENTICACIÓN: ¿Alguien inició sesión?
+            // 1. AUTENTICACIÓN
             if (Session["UsuarioLogueado"] == null || Session["TipoUsuario"] == null)
             {
                 Response.Redirect("~/Default.aspx");
                 return;
             }
 
-            // 2. AUTORIZACIÓN: ¿Este usuario tiene permiso para estar en esta Master Page?
-            if (Session["TipoUsuario"].ToString() != "Administracion")
+            // 2. AUTORIZACIÓN: Solo Clientes
+            if (Session["TipoUsuario"].ToString() != "Cliente")
             {
-                // Acción penalizadora: Cierra la sesión por intento de acceso no autorizado
+                // Si un Admin o Repartidor intenta entrar a la vista de clientes
                 Session.Clear();
                 Session.Abandon();
                 Response.Redirect("~/Default.aspx");

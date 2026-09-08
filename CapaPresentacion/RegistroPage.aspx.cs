@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace CapaPresentacion
 {
-    public partial class CategoriaPage : System.Web.UI.Page
+    public partial class RegistroPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,18 +19,20 @@ namespace CapaPresentacion
         }
 
         [WebMethod]
-        public static Respuesta<List<ECategoria>> ListarCategorias()
-        {
-            return NCategoria.GetInstance().ListaCategorias();
-        }
-
-        [WebMethod]
-        public static Respuesta<int> GuardarOrEditCategorias(ECategoria objeto)
+        public static Respuesta<int> GuardarClientes(ECliente objeto)
         {
             try
             {
-                // Como las categorías no manejan imagen, el objeto pasa directo a la capa de negocio
-                return NCategoria.GetInstance().GuardarOrEditCategorias(objeto);
+                // Como es exclusivamente registro nuevo, forzamos Id = 0
+                objeto.IdCliente = 0;
+
+                // Encriptamos la clave usando tu clase de Utilidades (BCrypt)
+                objeto.ClaveHash = Utilidades.GetInstance().Hash(objeto.ClaveHash);
+
+                // Estado por defecto Activo al crear cuenta
+                objeto.Estado = true;
+
+                return NCliente.GetInstance().GuardarOrEditClientes(objeto);
             }
             catch (Exception ex)
             {

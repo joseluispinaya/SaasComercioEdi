@@ -1,0 +1,13 @@
+﻿namespace CapaEntidad.DTOs
+{
+    public class DtoUsuarioSesion
+    {
+        public int IdUsuario { get; set; }
+        public int IdRol { get; set; }
+        public string NombreCompleto { get; set; }
+        public string Correo { get; set; }
+        public string ClaveHash { get; set; }
+        public bool Estado { get; set; }
+        public string TipoUsuario { get; set; }
+    }
+}

@@ -43,7 +43,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.1.0.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.1.0\lib\net462\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -2787,8 +2803,19 @@
     <Content Include="assets\vendor\vanilla-wizard\js\wizard.min.js" />
     <Content Include="assets\vendor\wnumb\wNumb.min.js" />
     <Content Include="CategoriaPage.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="image\delivery_mockup.jpg" />
+    <Content Include="image\fondo.jpg" />
+    <Content Include="image\productt.jpg" />
     <Content Include="Inicio.aspx" />
     <Content Include="js\Categoria.js" />
+    <Content Include="js\Default.js" />
+    <Content Include="js\Masterpa.js" />
+    <Content Include="js\RegistroPage.js" />
+    <Content Include="js\UsuariosPage.js" />
+    <Content Include="MasterCliente\InicioCliente.aspx" />
+    <Content Include="RegistroPage.aspx" />
+    <Content Include="UsuariosPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2798,6 +2825,13 @@
     </Compile>
     <Compile Include="CategoriaPage.aspx.designer.cs">
       <DependentUpon>CategoriaPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePage.Master.cs">
       <DependentUpon>HomePage.Master</DependentUpon>
@@ -2813,7 +2847,36 @@
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MasterCliente\HomeCliente.Master.cs">
+      <DependentUpon>HomeCliente.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterCliente\HomeCliente.Master.designer.cs">
+      <DependentUpon>HomeCliente.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterCliente\InicioCliente.aspx.cs">
+      <DependentUpon>InicioCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterCliente\InicioCliente.aspx.designer.cs">
+      <DependentUpon>InicioCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroPage.aspx.cs">
+      <DependentUpon>RegistroPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroPage.aspx.designer.cs">
+      <DependentUpon>RegistroPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosPage.aspx.cs">
+      <DependentUpon>UsuariosPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UsuariosPage.aspx.designer.cs">
+      <DependentUpon>UsuariosPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilidades.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="HomePage.Master" />
@@ -2877,6 +2940,7 @@
     <Content Include="assets\vendor\gmaps\umd.hbs" />
     <Content Include="assets\vendor\gmaps\yarn-error.log" />
     <Content Include="assets\vendor\wnumb\LICENSE.MD" />
+    <Content Include="MasterCliente\HomeCliente.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2917,6 +2981,16 @@
     <Folder Include="assets\vendor\gridjs\src\" />
     <Folder Include="assets\vendor\moment\src\" />
     <Folder Include="assets\vendor\swiper\types\modules\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
+      <Project>{33d9b8fe-1d2e-4cf1-8e00-7a9803243b1f}</Project>
+      <Name>CapaEntidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{235c0b23-5244-4f43-83f2-c5a071c38ce4}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
