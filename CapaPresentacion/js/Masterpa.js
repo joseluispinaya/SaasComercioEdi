@@ -106,24 +106,23 @@ function mostrarAlertaConfirmacion(titulo, mensaje, icono = 'warning', textoConf
     });
 }
 
-$(document).ready(function () {
-    const usuario = sessionStorage.getItem('usuarioLog');
+//$(document).ready(function () {
+//    const usuario = sessionStorage.getItem('usuarioLog');
 
-    if (!usuario) {
-        window.location.replace('Default.aspx');
-        return;
-    }
+//    if (!usuario) {
+//        window.location.replace('Default.aspx');
+//        return;
+//    }
 
-    try {
-        const usua = JSON.parse(usuario);
-        // Asignamos el valor a la variable global
-        useriGlobal = usua;
-    } catch (error) {
-        console.error("Error leyendo sesión", error);
-        sessionStorage.clear();
-        window.location.replace('Default.aspx');
-    }
-});
+//    try {
+//        const usua = JSON.parse(usuario);
+//        useriGlobal = usua;
+//    } catch (error) {
+//        console.error("Error leyendo sesión", error);
+//        sessionStorage.clear();
+//        window.location.replace('Default.aspx');
+//    }
+//});
 
 $('#salirsis').on('click', function (e) {
     e.preventDefault();

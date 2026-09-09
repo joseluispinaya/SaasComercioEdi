@@ -44,7 +44,10 @@
     <Compile Include="DTOs\DtoUsuarioSesion.cs" />
     <Compile Include="Entidades\ECategoria.cs" />
     <Compile Include="Entidades\ECliente.cs" />
+    <Compile Include="Entidades\EPresentacion.cs" />
+    <Compile Include="Entidades\EProducto.cs" />
     <Compile Include="Entidades\ERoles.cs" />
+    <Compile Include="Entidades\ESabor.cs" />
     <Compile Include="Entidades\EUsuarioWeb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\Respuesta.cs" />

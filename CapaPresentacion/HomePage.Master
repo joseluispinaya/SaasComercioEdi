@@ -118,19 +118,19 @@
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
                             <span class="menu-icon"><i class="ti ti-files"></i></span>
-                            <span class="menu-text"> Pages </span>
+                            <span class="menu-text"> Productos </span>
                             <span class="menu-arrow"></span>
                         </a>
                         <div class="collapse" id="sidebarPages">
                             <ul class="sub-menu">
                                 <li class="side-nav-item">
-                                    <a href="pages-maintenance.html" class="side-nav-link">
-                                        <span class="menu-text">Maintenance</span>
+                                    <a href="ProductoPage.aspx" class="side-nav-link">
+                                        <span class="menu-text">Registros</span>
                                     </a>
                                 </li>
                                 <li class="side-nav-item">
-                                    <a href="pages-pricing.html" class="side-nav-link">
-                                        <span class="menu-text">Pricing</span>
+                                    <a href="ListaProductos.aspx" class="side-nav-link">
+                                        <span class="menu-text">Listar</span>
                                     </a>
                                 </li>
                             </ul>
