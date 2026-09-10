@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaEntidad.DTOs;
 using CapaEntidad.Entidades;
 using CapaEntidad.Responses;
 using System;
@@ -40,5 +41,11 @@ namespace CapaNegocio
 
         public Respuesta<DtoProductoCompleto> ObtenerProductoPorId(int idProducto)
             => DProducto.GetInstance().ObtenerProductoPorId(idProducto);
+
+        // Agrega esto dentro de tu clase NProducto
+        public Respuesta<List<DtoCatalogoProducto>> ListarCatalogoActivo()
+        {
+            return DProducto.GetInstance().ListarCatalogoActivo();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CapaEntidad.Entidades;
+﻿using CapaEntidad.DTOs;
+using CapaEntidad.Entidades;
 using CapaEntidad.Responses;
 using System;
 using System.Collections.Generic;
@@ -290,6 +291,60 @@ namespace CapaDatos
                 return new Respuesta<DtoProductoCompleto> { Estado = dtoCompleto.Producto != null, Data = dtoCompleto };
             }
             catch (Exception ex) { return new Respuesta<DtoProductoCompleto> { Estado = false, Mensaje = ex.Message }; }
+        }
+
+        // Agrega esto dentro de tu clase DProducto
+        public Respuesta<List<DtoCatalogoProducto>> ListarCatalogoActivo()
+        {
+            try
+            {
+                List<DtoCatalogoProducto> rptLista = new List<DtoCatalogoProducto>();
+
+                using (SqlConnection con = ConexionBD.GetInstance().ConexionDB())
+                {
+                    using (SqlCommand comando = new SqlCommand("usp_ListarCatalogoActivo", con))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        con.Open();
+
+                        using (SqlDataReader dr = comando.ExecuteReader())
+                        {
+                            if (dr.HasRows)
+                            {
+                                while (dr.Read())
+                                {
+                                    rptLista.Add(new DtoCatalogoProducto
+                                    {
+                                        IdVariante = Convert.ToInt32(dr["IdVariante"]),
+                                        NombreProducto = dr["NombreProducto"].ToString(),
+                                        ImagenUrl = dr["ImagenUrl"].ToString(),
+                                        NombreCategoria = dr["NombreCategoria"].ToString(),
+                                        NombrePresentacion = dr["NombrePresentacion"].ToString(),
+                                        NombreSabor = dr["NombreSabor"].ToString(),
+                                        Precio = Convert.ToDecimal(dr["Precio"])
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return new Respuesta<List<DtoCatalogoProducto>>()
+                {
+                    Estado = true,
+                    Data = rptLista,
+                    Mensaje = "Catálogo obtenido correctamente."
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Respuesta<List<DtoCatalogoProducto>>()
+                {
+                    Estado = false,
+                    Data = null,
+                    Mensaje = $"Error al obtener el catálogo: {ex.Message}"
+                };
+            }
         }
 
     }

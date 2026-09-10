@@ -2818,6 +2818,10 @@
     <Content Include="js\UsuariosPage.js" />
     <Content Include="ListaProductos.aspx" />
     <Content Include="MasterCliente\InicioCliente.aspx" />
+    <Content Include="MasterCliente\jsClien\InicioCliente.js" />
+    <Content Include="MasterCliente\jsClien\Masterpa.js" />
+    <Content Include="MasterCliente\jsClien\Pedido.js" />
+    <Content Include="MasterCliente\PedidoPage.aspx" />
     <Content Include="ProductoPage.aspx" />
     <Content Include="RegistroPage.aspx" />
     <Content Include="UsuariosPage.aspx" />
@@ -2872,6 +2876,13 @@
     </Compile>
     <Compile Include="MasterCliente\InicioCliente.aspx.designer.cs">
       <DependentUpon>InicioCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterCliente\PedidoPage.aspx.cs">
+      <DependentUpon>PedidoPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterCliente\PedidoPage.aspx.designer.cs">
+      <DependentUpon>PedidoPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductoPage.aspx.cs">
       <DependentUpon>ProductoPage.aspx</DependentUpon>

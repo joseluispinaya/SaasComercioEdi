@@ -82,38 +82,12 @@
                     <li class="side-nav-title mt-2">Apps & Pages</li>
 
                     <li class="side-nav-item">
-                        <a href="apps-chat.html" class="side-nav-link">
-                            <span class="menu-icon"><i class="ti ti-message-filled"></i></span>
-                            <span class="menu-text"> Chat </span>
+                        <a href="PedidoPage.aspx" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-basket-filled"></i></span>
+                            <span class="menu-text"> Mi Pedido </span>
                         </a>
                     </li>
 
-                    <li class="side-nav-item">
-                        <a data-bs-toggle="collapse" href="#sidebarInvoice" aria-expanded="false" aria-controls="sidebarInvoice" class="side-nav-link">
-                            <span class="menu-icon"><i class="ti ti-file-invoice"></i></span>
-                            <span class="menu-text"> Configuracion</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <div class="collapse" id="sidebarInvoice">
-                            <ul class="sub-menu">
-                                <li class="side-nav-item">
-                                    <a href="#" class="side-nav-link">
-                                        <span class="menu-text">Categorias</span>
-                                    </a>
-                                </li>
-                                <li class="side-nav-item">
-                                    <a href="#" class="side-nav-link">
-                                        <span class="menu-text">Sabores</span>
-                                    </a>
-                                </li>
-                                <li class="side-nav-item">
-                                    <a href="#" class="side-nav-link">
-                                        <span class="menu-text">Presentacion</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
 
                     <li class="side-nav-title mt-2">Components</li>
 
@@ -174,6 +148,20 @@
                     <div class="topbar-item d-none d-sm-flex">
                         <button class="topbar-link btn btn-outline-primary btn-icon" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" type="button">
                             <i class="ti ti-settings fs-22"></i>
+                        </button>
+                    </div>
+
+                    <%--<div class="topbar-item">
+                        <button class="topbar-link btn btn-outline-primary btn-icon" id="btnCarrito" type="button">
+                            <i class="ti ti-shopping-cart fs-22"></i>
+                        </button>
+                    </div>--%>
+
+                    <div class="topbar-item">
+                        <button class="topbar-link btn btn-outline-primary btn-icon position-relative" id="btnCarrito" type="button">
+                            <i class="ti ti-shopping-cart fs-22"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">99+
+                            </span>
                         </button>
                     </div>
 
@@ -540,6 +528,7 @@
     <script src="../assets/vendor/datatables.net/js/dataTables.min.js"></script>
     <script src="../assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="../assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="jsClien/Masterpa.js?v=<%= DateTime.Now.ToString("yyyyMMddHHmmss") %>" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="footer" runat="server"></asp:ContentPlaceHolder>
 </body>
 

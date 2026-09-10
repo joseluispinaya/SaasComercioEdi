@@ -1,4 +1,6 @@
-﻿using CapaEntidad.Responses;
+﻿using CapaEntidad.DTOs;
+using CapaEntidad.Responses;
+using CapaNegocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,24 @@ namespace CapaPresentacion.MasterCliente
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        [WebMethod]
+        public static Respuesta<List<DtoCatalogoProducto>> ListarCatalogo()
+        {
+            try
+            {
+                return NProducto.GetInstance().ListarCatalogoActivo();
+            }
+            catch (Exception ex)
+            {
+                return new Respuesta<List<DtoCatalogoProducto>>
+                {
+                    Estado = false,
+                    Valor = "error",
+                    Mensaje = "Error en el servidor: " + ex.Message
+                };
+            }
         }
 
         [WebMethod(EnableSession = true)] // <--- OBLIGATORIO para poder borrarla
