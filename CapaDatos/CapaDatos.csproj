@@ -44,6 +44,7 @@
     <Compile Include="ConexionBD.cs" />
     <Compile Include="DCategoria.cs" />
     <Compile Include="DCliente.cs" />
+    <Compile Include="DPedido.cs" />
     <Compile Include="DProducto.cs" />
     <Compile Include="DUsuarioWeb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -77,23 +77,24 @@ function mostrarAlertaTimer(titulo, mensaje, icono, tiempo = 3000) {
 
 
 
-//$(document).ready(function () {
-//    const usuario = sessionStorage.getItem('usuarioLog');
+$(document).ready(function () {
+    const usuario = sessionStorage.getItem('usuarioLog');
 
-//    if (!usuario) {
-//        window.location.replace('Default.aspx');
-//        return;
-//    }
+    if (!usuario) {
+        window.location.replace('../Default.aspx');
+        return;
+    }
 
-//    try {
-//        const usua = JSON.parse(usuario);
-//        useriGlobal = usua;
-//    } catch (error) {
-//        console.error("Error leyendo sesión", error);
-//        sessionStorage.clear();
-//        window.location.replace('Default.aspx');
-//    }
-//});
+    try {
+        const usua = JSON.parse(usuario);
+        useriGlobal = usua;
+        $("#lblRol").text(usua.Correo);
+    } catch (error) {
+        console.error("Error leyendo sesión", error);
+        sessionStorage.clear();
+        window.location.replace('../Default.aspx');
+    }
+});
 
 $('#salirsis').on('click', function (e) {
     e.preventDefault();
@@ -122,7 +123,7 @@ function EjecutarCierreSesion() {
     $.ajax({
         // Asegúrate que la ruta apunte a donde pusiste el WebMethod
         // Si estás en MasterEstudiante/Inicio.aspx, la ruta es "Inicio.aspx/CerrarSesion"
-        url: "Inicio.aspx/CerrarSesion",
+        url: "InicioCliente.aspx/CerrarSesion",
         type: "POST",
         data: "{}",
         dataType: "json",
@@ -132,14 +133,14 @@ function EjecutarCierreSesion() {
                 // 1. Limpiar rastro en cliente
                 sessionStorage.clear();
 
-                window.location.replace('Default.aspx');
+                window.location.replace('../Default.aspx');
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log("Error al cerrar sesión");
             // Si falla el servidor, igual sacamos al usuario visualmente por seguridad
             sessionStorage.clear();
-            window.location.replace('Default.aspx');
+            window.location.replace('../Default.aspx');
         }
     });
 }

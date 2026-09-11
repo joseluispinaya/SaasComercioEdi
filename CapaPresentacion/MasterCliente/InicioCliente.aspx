@@ -25,7 +25,7 @@
             z-index: 1000;
             border-radius: 50px;
             padding: 12px 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            /*box-shadow: 0 4px 15px rgba(0,0,0,0.2);*/
         }
     </style>
 </asp:Content>
@@ -71,9 +71,9 @@
                     <input type="hidden" id="txtDetalleTemporal">
 
                     <h5 id="lblModalNombre" class="fw-bold mb-1">Nombre Producto</h5>
-                    <p id="lblModalDetalle" class="text-muted fs-13 mb-3">Presentación - Sabor</p>
+                    <p id="lblModalDetalle" class="text-muted fs-13 mb-2">Presentación - Sabor</p>
                     
-                    <h4 class="text-success fw-bold mb-3">Bs. <span id="lblModalPrecio">0.00</span></h4>
+                    <h4 class="text-success fw-bold mb-2">Bs. <span id="lblModalPrecio">0.00</span></h4>
 
                     <div class="mb-3 text-start">
                         <label class="form-label fw-semibold text-muted mb-1">Cantidad:</label>
@@ -91,7 +91,7 @@
 
                     <div class="d-grid">
                         <button type="button" id="btnConfirmarAgregar" class="btn btn-success fw-bold">
-                            <i class="ti ti-check me-1"></i> Confirmar
+                            <i class="ti ti-check me-1"></i> Agregar
                         </button>
                     </div>
 

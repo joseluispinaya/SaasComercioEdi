@@ -137,12 +137,12 @@
                         </div>
                     </li>
 
-                    <li class="side-nav-title mt-2">Components</li>
+                    <li class="side-nav-title mt-2">Pedidos</li>
 
                     <li class="side-nav-item">
-                        <a href="formularios.html" class="side-nav-link">
+                        <a href="ListaPedidos.aspx" class="side-nav-link">
                             <span class="menu-icon"><i class="ti ti-forms"></i></span>
-                            <span class="menu-text"> Formularios </span>
+                            <span class="menu-text"> Lista </span>
                         </a>
                     </li>
                 </ul>

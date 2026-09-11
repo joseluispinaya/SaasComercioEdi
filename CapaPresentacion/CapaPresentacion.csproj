@@ -2811,11 +2811,13 @@
     <Content Include="Inicio.aspx" />
     <Content Include="js\Categoria.js" />
     <Content Include="js\Default.js" />
+    <Content Include="js\ListaPedidos.js" />
     <Content Include="js\ListaProductos.js" />
     <Content Include="js\Masterpa.js" />
     <Content Include="js\Producto.js" />
     <Content Include="js\RegistroPage.js" />
     <Content Include="js\UsuariosPage.js" />
+    <Content Include="ListaPedidos.aspx" />
     <Content Include="ListaProductos.aspx" />
     <Content Include="MasterCliente\InicioCliente.aspx" />
     <Content Include="MasterCliente\jsClien\InicioCliente.js" />
@@ -2855,6 +2857,13 @@
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListaPedidos.aspx.cs">
+      <DependentUpon>ListaPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListaPedidos.aspx.designer.cs">
+      <DependentUpon>ListaPedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListaProductos.aspx.cs">
       <DependentUpon>ListaProductos.aspx</DependentUpon>

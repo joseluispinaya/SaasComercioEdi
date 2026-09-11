@@ -19,7 +19,7 @@
         }
 
         .input-qty {
-            width: 45px !important;
+            width: 15px !important;
             text-align: center;
             padding: 0.25rem;
             font-weight: bold;
@@ -50,7 +50,7 @@
                 <div class="card-header border-bottom border-dashed">
                     <h5 class="card-title m-0 fw-bold text-dark"><i class="ti ti-list me-2"></i>Productos Agregados</h5>
                 </div>
-                <div class="card-body p-0">
+                <div class="card-body p-1">
                     <div class="table-responsive">
                         <table class="table table-hover align-middle mb-0" id="tbDetallePedido">
                             <thead class="table-light text-center">
@@ -90,13 +90,13 @@
                     </div>
                     
                     <div class="d-flex justify-content-between mb-3 pb-3 border-bottom border-dashed">
-                        <span class="text-muted fw-medium">Costo de Envío:</span>
-                        <span class="text-success fw-bold">A coordinar</span>
+                        <span class="text-muted fw-medium">Cliente:</span>
+                        <span id="lblInfoPropietario" class="text-success fw-bold">A coordinar</span>
                     </div>
                     
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <span class="text-dark fs-16 fw-bold">Total a Pagar:</span>
-                        <h3 class="text-primary m-0 fw-bold">Bs. <span id="lblTotalGeneral">0.00</span></h3>
+                        <h3 class="text-dark m-0 fw-bold">Bs. <span id="lblTotalGeneral">0.00</span></h3>
                     </div>
 
                     <div class="alert alert-soft-warning fs-13 mb-3" role="alert">

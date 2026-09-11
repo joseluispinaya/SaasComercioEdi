@@ -2,6 +2,7 @@
 
 $(document).ready(function () {
     cargarCarrito();
+    $("#lblInfoPropietario").text(useriGlobal.NombreCompleto || "Usuario");
 
     // Evento para enviar el pedido al backend (C#)
     $("#btnEnviarPedido").on("click", function () {
@@ -35,12 +36,9 @@ function cargarCarrito() {
         let tr = `
             <tr data-idvariante="${item.IdVariante}">
                 <td class="ps-3 text-start">
-                    <div class="d-flex align-items-center">
-                        <img src="${item.Imagen}" class="img-carrito me-3" alt="Img">
-                        <div>
-                            <h6 class="m-0 fw-bold text-dark">${item.Nombre}</h6>
-                            <span class="text-muted fs-13 d-block mt-1">${item.Detalle}</span>
-                        </div>
+                    <div>
+                       <h6 class="m-0 fw-bold text-dark">${item.Nombre}</h6>
+                       <span class="text-muted fs-13 d-block mt-1">${item.Detalle}</span>
                     </div>
                 </td>
                 <td class="text-center fw-medium">Bs. ${item.Precio.toFixed(2)}</td>
@@ -145,16 +143,59 @@ function procesarPedido() {
         return;
     }
 
-    // Aquí prepararemos la lista exacta que pide tu Backend para el envío
-    // y haremos la petición AJAX final.
-    console.log("Listo para enviar:", carrito);
+    // 1. Calcular Total y Mapear el Array
+    let totalPedido = 0;
 
-    /*
-    // Estructura AJAX esperada para el siguiente paso:
-    $.ajax({
-        // ...
+    let listaDetalles = carrito.map(item => {
+        totalPedido += item.Total;
+        return {
+            IdVariante: item.IdVariante,
+            Cantidad: item.Cantidad,
+            PrecioUnitario: item.Precio,
+            SubTotal: item.Total
+        };
     });
-    */
+
+    // Bloqueamos el botón para evitar doble clic
+    let btnOriginal = $('#btnEnviarPedido').html();
+    $('#btnEnviarPedido').prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-2"></span>Enviando...');
+    $.LoadingOverlay("show");
+
+    // 2. Ejecutar AJAX
+    $.ajax({
+        type: "POST",
+        url: "PedidoPage.aspx/GuardarPedido",
+        data: JSON.stringify({
+            totalPedido: parseFloat(totalPedido.toFixed(2)),
+            detalles: listaDetalles
+        }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            $.LoadingOverlay("hide");
+
+            if (response.d.Estado) {
+                // Limpiar carrito local
+                localStorage.removeItem("carritoTiendaEddy");
+
+                mostrarAlertaTimer("¡Pedido Enviado!", response.d.Mensaje, "success", 2000);
+
+                // Redirigir al catálogo o a un historial de pedidos después de 2 segundos
+                setTimeout(() => {
+                    window.location.href = "InicioCliente.aspx";
+                }, 2200);
+            } else {
+                mostrarAlertaTimer("Atención", response.d.Mensaje, response.d.Valor);
+                $('#btnEnviarPedido').prop('disabled', false).html(btnOriginal);
+            }
+        },
+        error: function (xhr) {
+            console.log(xhr.responseText);
+            $.LoadingOverlay("hide");
+            mostrarAlertaZero("¡Error!", "Error de comunicación con el servidor.", "error");
+            $('#btnEnviarPedido').prop('disabled', false).html(btnOriginal);
+        }
+    });
 }
 
 // fin

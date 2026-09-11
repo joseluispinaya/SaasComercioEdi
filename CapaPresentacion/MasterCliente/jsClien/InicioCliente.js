@@ -44,10 +44,10 @@ function cargarCatalogo() {
                             <div class="card card-producto border" onclick="abrirModalCarrito(${item.IdVariante})">
                                 <img src="${imgUrl}" class="img-catalogo bg-white border-bottom" alt="${item.NombreProducto}">
                                 <div class="card-body p-3 d-flex flex-column">
-                                    <span class="badge bg-soft-primary text-primary mb-2 align-self-start">${item.NombreCategoria}</span>
+                                    <p class="text-muted fs-15 mb-2"><span class="badge bg-secondary">${item.NombreCategoria}</span> | Bs. ${item.Precio.toFixed(2)}</p>
                                     <h5 class="fw-bold text-dark mb-1">${item.NombreProducto}</h5>
-                                    <p class="text-muted fs-13 mb-2">${item.NombrePresentacion} | <span class="badge ${badgeSabor}">${item.NombreSabor}</span></p>
-                                    <h4 class="text-success fw-bold mt-auto mb-0">Bs. ${item.Precio.toFixed(2)}</h4>
+                                    <p class="text-muted fs-13 mb-0">${item.NombrePresentacion} | <span class="badge ${badgeSabor}">${item.NombreSabor}</span></p>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -170,6 +170,7 @@ function actualizarContadorCarrito() {
     });
 
     $("#lblCantidadCarrito").text(cantidadTotal);
+    //$("#lblCantCarrito").text(carrito.length);
 
     // Animación opcional para llamar la atención
     if (cantidadTotal > 0) {

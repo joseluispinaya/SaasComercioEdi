@@ -160,7 +160,7 @@
                     <div class="topbar-item">
                         <button class="topbar-link btn btn-outline-primary btn-icon position-relative" id="btnCarrito" type="button">
                             <i class="ti ti-shopping-cart fs-22"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">99+
+                            <span id="lblCantCarrito" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0
                             </span>
                         </button>
                     </div>
