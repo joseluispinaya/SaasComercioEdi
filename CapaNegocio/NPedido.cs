@@ -35,6 +35,11 @@ namespace CapaNegocio
             return DPedido.GetInstance().ListarPedidosAdmin(estadoPedido);
         }
 
+        public Respuesta<List<DtoPedidoAdmin>> ListarPedidosEntregados(int idRepartidor, DateTime fechaConsulta)
+        {
+            return DPedido.GetInstance().ListarPedidosEntregados(idRepartidor, fechaConsulta);
+        }
+
         public Respuesta<List<DtoDetallePedidoAdmin>> ObtenerDetallePedido(int idPedido)
         {
             return DPedido.GetInstance().ObtenerDetallePedido(idPedido);

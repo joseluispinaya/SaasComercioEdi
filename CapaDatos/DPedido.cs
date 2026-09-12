@@ -203,5 +203,42 @@ namespace CapaDatos
             return response;
         }
 
+        public Respuesta<List<DtoPedidoAdmin>> ListarPedidosEntregados(int idRepartidor, DateTime fechaConsulta)
+        {
+            List<DtoPedidoAdmin> lista = new List<DtoPedidoAdmin>();
+            try
+            {
+                using (SqlConnection con = ConexionBD.GetInstance().ConexionDB())
+                {
+                    using (SqlCommand cmd = new SqlCommand("usp_PedidosEntregados", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@IdRepartidor", idRepartidor);
+                        cmd.Parameters.AddWithValue("@FechaConsulta", fechaConsulta.Date); // Solo la fecha
+
+                        con.Open();
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                lista.Add(new DtoPedidoAdmin
+                                {
+                                    IdPedido = Convert.ToInt32(dr["IdPedido"]),
+                                    NombreCliente = dr["NombreCliente"].ToString(),
+                                    FechaHoraLocal = dr["FechaHoraLocal"].ToString(),
+                                    TotalPedido = Convert.ToDecimal(dr["TotalPedido"]),
+                                    EstadoPedido = Convert.ToInt32(dr["EstadoPedido"]),
+                                    Latitud = dr["Latitud"] != DBNull.Value ? Convert.ToDecimal(dr["Latitud"]) : 0,
+                                    Longitud = dr["Longitud"] != DBNull.Value ? Convert.ToDecimal(dr["Longitud"]) : 0
+                                });
+                            }
+                        }
+                    }
+                }
+                return new Respuesta<List<DtoPedidoAdmin>> { Estado = true, Data = lista };
+            }
+            catch (Exception ex) { return new Respuesta<List<DtoPedidoAdmin>> { Estado = false, Mensaje = ex.Message }; }
+        }
+
     }
 }

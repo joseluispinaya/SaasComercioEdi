@@ -142,7 +142,14 @@
                     <li class="side-nav-item">
                         <a href="ListaPedidos.aspx" class="side-nav-link">
                             <span class="menu-icon"><i class="ti ti-forms"></i></span>
-                            <span class="menu-text"> Lista </span>
+                            <span class="menu-text"> Pedidos </span>
+                        </a>
+                    </li>
+
+                    <li class="side-nav-item">
+                        <a href="ControlEntregas.aspx" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-forms"></i></span>
+                            <span class="menu-text">Control Pedidos </span>
                         </a>
                     </li>
                 </ul>

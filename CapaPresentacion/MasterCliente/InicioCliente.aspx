@@ -30,10 +30,22 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="row mb-3 align-items-center">
+    <%--<div class="row mb-3 align-items-center">
         <div class="col-12">
             <h4 class="page-title fw-bold">¿Qué deseas pedir hoy?</h4>
             <p class="text-muted">Selecciona los productos para agregarlos a tu pedido.</p>
+        </div>
+    </div>--%>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <h6 class="fw-bold text-dark mb-3"><i class="ti ti-filter me-1"></i>Categorías</h6>
+                    <div id="contenedorCategorias" class="d-flex flex-wrap gap-2">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

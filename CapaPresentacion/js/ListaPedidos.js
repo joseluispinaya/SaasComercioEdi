@@ -57,7 +57,7 @@ function cargarPedidos() {
                                     </div>
                                     <h5 class="fw-bold text-dark text-truncate mb-1" title="${item.NombreCliente}">${item.NombreCliente}</h5>
                                     <p class="text-muted fs-13 mb-3"><i class="ti ti-clock me-1"></i>${item.FechaHoraLocal}</p>
-                                    <h4 class="text-primary fw-bold m-0">Bs. ${item.TotalPedido.toFixed(2)}</h4>
+                                    <h4 class="text-dark fw-bold m-0">Bs. ${item.TotalPedido.toFixed(2)}</h4>
                                 </div>
                             </div>
                         </div>

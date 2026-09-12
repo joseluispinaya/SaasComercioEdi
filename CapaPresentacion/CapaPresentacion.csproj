@@ -2803,6 +2803,7 @@
     <Content Include="assets\vendor\vanilla-wizard\js\wizard.min.js" />
     <Content Include="assets\vendor\wnumb\wNumb.min.js" />
     <Content Include="CategoriaPage.aspx" />
+    <Content Include="ControlEntregas.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Imagenes\sinimagen.png" />
     <Content Include="image\delivery_mockup.jpg" />
@@ -2810,6 +2811,7 @@
     <Content Include="image\productt.jpg" />
     <Content Include="Inicio.aspx" />
     <Content Include="js\Categoria.js" />
+    <Content Include="js\ControlEntregas.js" />
     <Content Include="js\Default.js" />
     <Content Include="js\ListaPedidos.js" />
     <Content Include="js\ListaProductos.js" />
@@ -2836,6 +2838,13 @@
     </Compile>
     <Compile Include="CategoriaPage.aspx.designer.cs">
       <DependentUpon>CategoriaPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlEntregas.aspx.cs">
+      <DependentUpon>ControlEntregas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlEntregas.aspx.designer.cs">
+      <DependentUpon>ControlEntregas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

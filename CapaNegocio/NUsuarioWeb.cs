@@ -35,6 +35,26 @@ namespace CapaNegocio
             return DUsuarioWeb.GetInstance().ListaUsuarios();
         }
 
+        public Respuesta<List<EUsuarioWeb>> ListaRepartidores()
+        {
+            var response = DUsuarioWeb.GetInstance().ListaUsuarios();
+
+            if (response.Estado && response.Data != null)
+            {
+                // Filtramos solo los repartidores (IdRol = 2) y que estén activos
+                var listaRepartidores = response.Data.Where(x => x.IdRol == 2 && x.Estado == true).ToList();
+
+                return new Respuesta<List<EUsuarioWeb>>()
+                {
+                    Estado = true,
+                    Data = listaRepartidores,
+                    Mensaje = "Lista obtenida correctamente"
+                };
+            }
+
+            return response; // Si hubo error, retornamos el error original
+        }
+
         public Respuesta<List<ERoles>> ListaRoles()
         {
             return DUsuarioWeb.GetInstance().ListaRoles();

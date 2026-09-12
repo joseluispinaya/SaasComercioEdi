@@ -5,12 +5,43 @@ let catalogoGlobal = [];
 $(document).ready(function () {
     cargarCatalogo();
     actualizarContadorCarrito();
+    botonesCategorias();
 
     // Redirección al carrito
     $("#btnIrAlCarrito").on("click", function () {
         window.location.href = "PedidoPage.aspx";
     });
 });
+
+function botonesCategorias() {
+    $.ajax({
+        type: "POST",
+        url: "/CategoriaPage.aspx/ListarCategorias",
+        data: "{}",
+        contentType: 'application/json; charset=utf-8',
+        dataType: "json",
+        success: function (response) {
+
+            $("#contenedorCategorias").empty();
+            if (response.d.Estado) {
+                let catego = response.d.Data;
+
+                let verTodo = '<button type="button" class="btn btn-info rounded-pill" onclick="obtenerIdCategoria(0)">Ver Todo</button>';
+                $.each(catego, function (i, row) {
+                    let btn = `<button type="button" class="btn btn-info rounded-pill" onclick="obtenerIdCategoria(${row.IdCategoria})">${row.NombreCategoria}</button>`;
+                    $("#contenedorCategorias").append(btn);
+                });
+                $("#contenedorCategorias").prepend(verTodo);
+            } else {
+                mostrarAlertaZero("Error", response.d.Mensaje, "error");
+            }
+        }
+    });
+}
+
+function obtenerIdCategoria(idCategoria) {
+    mostrarAlertaZero("Atención", `Seleccionaste la categoría con ID: ${idCategoria}`, "info");
+}
 
 // ==========================================
 // 1. CARGAR CATÁLOGO DESDE LA BASE DE DATOS
