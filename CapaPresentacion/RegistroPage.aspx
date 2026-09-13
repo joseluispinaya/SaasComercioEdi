@@ -146,7 +146,7 @@
     <script src="assets/vendor/loadingoverlay/loadingoverlay.min.js"></script>
     <script src="js/RegistroPage.js?v=<%= DateTime.Now.ToString("yyyyMMddHHmmss") %>" type="text/javascript"></script>
     <!-- Google Maps API (AQUÍ DEBES PONER TU KEY) -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDF1HcfGOeusxinFBpjXsMccjQxCtxRrV4&loading=async&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=xxxxxxxxxx&loading=async&callback=initMap"></script>
 
     <!-- Script de lógica de la página -->
 </body>

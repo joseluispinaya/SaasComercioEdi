@@ -318,6 +318,7 @@ namespace CapaDatos
                                         IdVariante = Convert.ToInt32(dr["IdVariante"]),
                                         NombreProducto = dr["NombreProducto"].ToString(),
                                         ImagenUrl = dr["ImagenUrl"].ToString(),
+                                        IdCategoria = Convert.ToInt32(dr["IdCategoria"]),
                                         NombreCategoria = dr["NombreCategoria"].ToString(),
                                         NombrePresentacion = dr["NombrePresentacion"].ToString(),
                                         NombreSabor = dr["NombreSabor"].ToString(),
